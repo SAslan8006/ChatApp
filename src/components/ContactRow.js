@@ -7,6 +7,7 @@ import {
 } from "react-native";
 import React from "react";
 import { Ionicons } from "@expo/vector-icons";
+import { colors } from "../config/constants";
 
 const ContactRow = ({ name, subtitle,onPress }) => {
   let firstLetters = '';
@@ -64,7 +65,7 @@ const styles = StyleSheet.create({
   avatar: {
     width: 56,
     height: 56,
-    backgroundColor: "#2196f3",
+    backgroundColor: colors.primary,
     borderRadius: 28,
     alignItems: "center",
     justifyContent: "center",
