@@ -1,40 +1,22 @@
 import { View, Text, SafeAreaView, TouchableOpacity, StyleSheet } from 'react-native'
-import React from 'react'
-
+import React from 'react';
+import {Ionicons} from '@expo/vector-icons';
+import ContactRow from '../src/components/ContactRow';
+import Separator from './../src/components/Separator';
 
 const Chats=()=>{
     return(
-        <SafeAreaView style={styles.row}>
-            <TouchableOpacity>
-                <Text style={styles.name}>User Name</Text>
-                <Text style={styles.subtitle}>Hi, I am waiting for you for dinner </Text>
-            </TouchableOpacity>
+        <SafeAreaView >
+            <ContactRow name="Süleyman Aslan" subtitle="React Native Course" onPress={()=>{ alert("Hi,")}}/>
+            <Separator/>
+            <ContactRow name="Pamuk Aslan" subtitle="React Native" onPress={()=>{ alert("Hi,")}}/>
             <View style={styles.serprator}/>
-            <TouchableOpacity>
-                <Text style={styles.name}>User Name</Text>
-                <Text style={styles.subtitle}>Hi, I am waiting for you for dinner </Text>
-            </TouchableOpacity>
         </SafeAreaView>
     )
 }
 
-const styles=StyleSheet.create({
-    row:{
-        paddingHorizontal:16,
-        paddingVertical:20,
-    },
-    name:{
-        fontSize:16,
-    },
-    subtitle:{
-        marginTop:2,
-        color:'#565656',
-    },
-    serprator:{
-        height:StyleSheet.hairlineWidth,
-        backgroundColor:"#E2E2E2",
-        marginStart:16,
-    }
+const styles=StyleSheet.create({   
+   
 })
 
 export default Chats;
