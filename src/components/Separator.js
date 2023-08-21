@@ -1,5 +1,6 @@
 import React from 'react'
 import { StyleSheet, Text, View } from 'react-native'
+import { colors } from '../config/constants'
 
 const Separator=()=>{
     return(<View style={styles.serprator}/>)
@@ -8,7 +9,7 @@ const Separator=()=>{
 const styles=StyleSheet.create({   
     serprator:{
         height:StyleSheet.hairlineWidth,
-        backgroundColor:"#E2E2E2",
+        backgroundColor:colors.border,
         marginStart:88,
     }
 })

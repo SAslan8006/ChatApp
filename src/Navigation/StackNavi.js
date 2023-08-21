@@ -26,7 +26,7 @@ const MainStack=createNativeStackNavigator()
 const App=()=> {
   return (
     <NavigationContainer>
-      <MainStack.Navigator initialRouteName="Home">
+      <MainStack.Navigator initialRouteName="Home" mode="modal">
         <MainStack.Screen name='Home' component={Home}/>
         <MainStack.Screen name='Settings' component={Settings} /> 
       </MainStack.Navigator>

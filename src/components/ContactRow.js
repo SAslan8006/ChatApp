@@ -9,7 +9,7 @@ import React from "react";
 import { Ionicons } from "@expo/vector-icons";
 import { colors } from "../config/constants";
 
-const ContactRow = ({ name, subtitle,onPress }) => {
+const ContactRow = ({ name, subtitle,onPress,style }) => {
   let firstLetters = '';
 
   if (name && name.trim() !== '') {
@@ -21,7 +21,7 @@ const ContactRow = ({ name, subtitle,onPress }) => {
     }
   }
   return (
-    <TouchableOpacity style={styles.row} onPress={onPress}>
+    <TouchableOpacity style={[styles.row,style]} onPress={onPress}>
 
       <View style={styles.avatar}>
         <Text style={styles.avatarLabel}>{firstLetters}</Text>
