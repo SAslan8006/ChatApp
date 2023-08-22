@@ -1,29 +1,23 @@
 import React, { useState, useCallback, useEffect } from 'react'
 import { GiftedChat } from 'react-native-gifted-chat'
+import { firebase } from 'firebase';
 
-function Chat() {
+const Chat=({route})=> {
   const [messages, setMessages] = useState([])
 
   useEffect(() => {
-    setMessages([
-      {
-        _id: 1,
-        text: 'Hello developer',
-        createdAt: new Date(),
-        user: {
-          _id: 2,
-          name: 'React Native',
-          avatar: 'https://placeimg.com/140/140/any',
-        },
-      },
-    ])
-  }, [])
+    firebase.firebastore().doc('chats/',route.params.id).onSnapshot(doc=>{
+      setMessages(doc.data().messages.map(message=>({
+        ...message,
+        date:message.createdAt.toDate()
+      })));
+    })
+  }, [route.params.id])
 
-  const onSend = useCallback((messages = []) => {
-    setMessages(previousMessages =>
-      GiftedChat.append(previousMessages, messages),
-    )
-  }, [])
+  const onSend = useCallback((m = []) => {
+    firebase.firebastore().doc('chats/'+route.params.id)
+    .set({messages:GiftedChat.append(previousMessages,m)},{merge:true})
+  }, [route.params.id,messages])
 
   return (
     <GiftedChat
